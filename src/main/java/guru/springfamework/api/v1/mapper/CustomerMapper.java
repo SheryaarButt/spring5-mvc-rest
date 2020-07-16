@@ -12,6 +12,7 @@ public interface CustomerMapper {
     @Mapping(target="customerUrl", source = "id")
     CustomerDto customerToCustomerDto(Customer customer);
 
+    @Mapping(target = "id", ignore = true)
     Customer customerDtoToCustomer(CustomerDto customerDto);
 
     default String idToCustomerUrl(Long id){
