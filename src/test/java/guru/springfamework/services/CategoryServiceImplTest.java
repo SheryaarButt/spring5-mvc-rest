@@ -1,5 +1,6 @@
 package guru.springfamework.services;
 
+import guru.springfamework.api.v1.mapper.CategoryMapper;
 import guru.springfamework.api.v1.model.CategoryDto;
 import guru.springfamework.domain.Category;
 import guru.springfamework.repositories.CategoryRepository;
@@ -20,6 +21,9 @@ public class CategoryServiceImplTest {
     @Mock
     CategoryRepository categoryRepository;
 
+    @Mock
+    CategoryMapper categoryMapper;
+
     @InjectMocks
     CategoryServiceImpl categoryService;
 
@@ -37,6 +41,8 @@ public class CategoryServiceImplTest {
         categories.add(category2);
         CategoryDto categoryDto1 = CategoryDto.builder().id(1L).name("Test1").build();
         CategoryDto categoryDto2 = CategoryDto.builder().id(2L).name("Test2").build();
+        when(categoryMapper.categoryToCategoryDto(category1)).thenReturn(categoryDto1);
+        when(categoryMapper.categoryToCategoryDto(category2)).thenReturn(categoryDto2);
 
         when(categoryRepository.findAll()).thenReturn(categories);
 
@@ -47,6 +53,7 @@ public class CategoryServiceImplTest {
     public void getCategoryByName() {
         Category category1 = Category.builder().id(1L).name("Test1").build();
         CategoryDto categoryDto1 = CategoryDto.builder().id(1L).name("Test1").build();
+        when(categoryMapper.categoryToCategoryDto(category1)).thenReturn(categoryDto1);
 
         when(categoryRepository.findByNameIgnoreCase("Test1")).thenReturn(category1);
 
