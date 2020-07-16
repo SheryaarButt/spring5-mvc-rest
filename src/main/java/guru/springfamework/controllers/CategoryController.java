@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/api/v1/categories")
+@RequestMapping(PathConstants.CATEGORIES_V1)
 public class CategoryController {
 
     CategoryService categoryService;

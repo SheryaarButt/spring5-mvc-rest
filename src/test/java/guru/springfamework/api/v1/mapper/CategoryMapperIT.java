@@ -13,7 +13,7 @@ import static org.junit.Assert.assertEquals;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class CategoryMapperTest {
+public class CategoryMapperIT {
 
     @Autowired
     CategoryMapper categoryMapper;

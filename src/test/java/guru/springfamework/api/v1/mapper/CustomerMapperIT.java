@@ -15,7 +15,7 @@ import static org.junit.Assert.assertNull;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class CustomerMapperTest {
+public class CustomerMapperIT {
 
 
     private static final String TEST_LAST = "TestLastName";
