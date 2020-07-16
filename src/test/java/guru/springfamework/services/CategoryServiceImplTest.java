@@ -40,7 +40,7 @@ public class CategoryServiceImplTest {
 
         when(categoryRepository.findAll()).thenReturn(categories);
 
-        assertEquals(2,categoryService.getCategories().size());
+        assertEquals(2,categoryService.getCategories().getCategories().size());
     }
 
     @Test
@@ -48,7 +48,7 @@ public class CategoryServiceImplTest {
         Category category1 = Category.builder().id(1L).name("Test1").build();
         CategoryDto categoryDto1 = CategoryDto.builder().id(1L).name("Test1").build();
 
-        when(categoryRepository.findByName("Test1")).thenReturn(category1);
+        when(categoryRepository.findByNameIgnoreCase("Test1")).thenReturn(category1);
 
         assertEquals("Test1",categoryService.getCategoryByName("Test1").getName());
     }
